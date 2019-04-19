@@ -65,13 +65,13 @@ exec_postinst_scriptlets() {
 	for i in `ls $pi_dir`; do
 		i=$pi_dir/$i
 		echo "Running postinst $i..."
-		[ "$POSTINST_LOGGING" = "1" ] && eval echo "Running postinst $i..." $append_log
+		[ "$POSTINST_LOGGING" = "1" ] && $(echo "Running postinst $i..." $append_log)
 		if [ -x $i ]; then
-			eval sh -c $i $append_log
+			$(sh -c $i $append_log)
 			rm $i
 		else
 			echo "ERROR: postinst $i failed."
-			[ "$POSTINST_LOGGING" = "1" ] && eval echo "ERROR: postinst $i failed." $append_log
+			[ "$POSTINST_LOGGING" = "1" ] && $(echo "ERROR: postinst $i failed." $append_log)
 			remove_pi_dir=0
 		fi
 	done
@@ -81,11 +81,11 @@ remove_pi_dir=1
 if $pm_installed; then
 	case $pm in
 		"ipk")
-			eval opkg configure $append_log
+			$(opkg configure $append_log)
 			;;
 
 		"deb")
-			eval dpkg --configure -a $append_log
+			$(dpkg --configure -a $append_log)
 			;;
 	esac
 else
