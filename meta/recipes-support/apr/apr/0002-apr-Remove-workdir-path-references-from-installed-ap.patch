@@ -1,8 +1,7 @@
-From 5925b20da8bbc34d9bf5a5dca123ef38864d43c6 Mon Sep 17 00:00:00 2001
+From c06e33851c4b209996682897a02a4219ebf34197 Mon Sep 17 00:00:00 2001
 From: Hongxu Jia <hongxu.jia@windriver.com>
 Date: Tue, 30 Jan 2018 09:39:06 +0800
-Subject: [PATCH 2/7] apr: Remove workdir path references from installed apr
- files
+Subject: [PATCH] apr: Remove workdir path references from installed apr files
 
 Upstream-Status: Inappropriate [configuration]
 
@@ -14,6 +13,7 @@ packages at target run time, the workdir path caused confusion.
 Rebase to 1.6.3
 
 Signed-off-by: Hongxu Jia <hongxu.jia@windriver.com>
+
 ---
  apr-config.in | 26 ++------------------------
  1 file changed, 2 insertions(+), 24 deletions(-)
@@ -69,6 +69,3 @@ index 84b4073..bbbf651 100644
      ;;
      --shlib-path-var)
      echo "$SHLIBPATH_VAR"
--- 
-1.8.3.1
-

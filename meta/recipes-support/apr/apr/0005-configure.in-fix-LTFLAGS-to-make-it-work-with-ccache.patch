@@ -1,7 +1,7 @@
-From 2e66cece0c3adff92733332111204ddc1d730a07 Mon Sep 17 00:00:00 2001
+From 8f3675678980d7032646ee88eafb061d5b2cd1a0 Mon Sep 17 00:00:00 2001
 From: Robert Yang <liezhi.yang@windriver.com>
 Date: Thu, 19 Nov 2015 18:25:38 -0800
-Subject: [PATCH 5/7] configure.in: fix LTFLAGS to make it work with ccache
+Subject: [PATCH] configure.in: fix LTFLAGS to make it work with ccache
 
 When ccache is enabled, libtool requires --tag=CC when use ccache,
 otherwise when building apr-util with ccache enabled:
@@ -14,12 +14,13 @@ otherwise when building apr-util with ccache enabled:
 Upstream-Status: Pending
 
 Signed-off-by: Robert Yang <liezhi.yang@windriver.com>
+
 ---
  configure.in | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure.in b/configure.in
-index 361120f..3b10422 100644
+index c663a96..27b8539 100644
 --- a/configure.in
 +++ b/configure.in
 @@ -249,7 +249,7 @@ case $host in
@@ -31,6 +32,3 @@ index 361120f..3b10422 100644
      fi
      if test "$experimental_libtool" = "yes"; then
          # Use a custom-made libtool replacement
--- 
-1.8.3.1
-
