@@ -19,3 +19,5 @@ IMAGE_ROOTFS_EXTRA_SPACE = "1324288"
 
 # ptests need more memory than standard to avoid the OOM killer
 QB_MEM = "-m 1024"
+
+BASICTESTSUITE += "ltp ltp_compliance"
